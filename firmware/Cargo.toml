@@ -1,0 +1,17 @@
+[package]
+name = "milkv-duos-little-core-firmware"
+version = "0.1.0"
+edition = "2021"
+
+[profile.release]
+lto = "fat"
+
+[dependencies]
+critical-section = "1.1.2"
+embassy-executor = { version = "0.5.0", features = ["arch-riscv32", "executor-thread", "integrated-timers", "nightly"] }
+embassy-time = "0.3.1"
+embassy-time-driver = { version = "0.1.0", features = ["tick-hz-1_000_000"] }
+riscv = { version = "0.11.1", features = ["critical-section-single-hart"] }
+riscv-rt = { version = "0.12.2", features = ["single-hart"] }
+sg2000-pac = { path = "../pac", features = ["critical-section", "rt"] }
+xuantie = "0.0.5"

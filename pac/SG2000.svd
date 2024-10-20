@@ -1,0 +1,490 @@
+<?xml version="1.0" encoding="utf-8"?>
+<device xmlns:xs="http://www.w3.org/2001/XMLSchema-instance" schemaVersion="1.1" xs:noNamespaceSchemaLocation="CMSIS-SVD.xsd">
+  <vendor>Sophgo</vendor>
+  <name>SG2000</name>
+  <addressUnitBits>8</addressUnitBits>
+  <width>64</width>
+  <size>32</size>
+  <peripherals>
+    <peripheral>
+      <name>plic</name>
+      <description>Platform-Level Interrupt Controller</description>
+      <baseAddress>0x70000000</baseAddress>
+      <addressBlock>
+        <offset>0x0</offset>
+        <size>0x4000000</size>
+        <usage>registers</usage>
+      </addressBlock>
+      <registers>
+        <register>
+          <dim>1024</dim>
+          <dimIncrement>0x4</dimIncrement>
+          <name>priority[%s]</name>
+          <description>Interrupt priority</description>
+          <addressOffset>0x0</addressOffset>
+          <resetValue>0x00000000</resetValue>
+          <writeConstraint>
+            <range>
+              <minimum>0</minimum>
+              <maximum>4294967295</maximum>
+            </range>
+          </writeConstraint>
+          <access>read-write</access>
+        </register>
+        <cluster>
+          <dim>15872</dim>
+          <dimIncrement>0x80</dimIncrement>
+          <name>enable[%s]</name>
+          <description>Interrupt Enable Registers</description>
+          <addressOffset>0x2000</addressOffset>
+          <register>
+            <dim>32</dim>
+            <dimIncrement>0x4</dimIncrement>
+            <name>bits[%s]</name>
+            <description>Interrupt Enable Bits</description>
+            <addressOffset>0x0</addressOffset>
+            <resetValue>0x00000000</resetValue>
+          </register>
+        </cluster>
+        <register>
+          <dim>15872</dim>
+          <dimIncrement>0x1000</dimIncrement>
+          <name>priority_threshold[%s]</name>
+          <description>Interrupt Priority Threshold</description>
+          <addressOffset>0x200000</addressOffset>
+            <resetValue>0x00000000</resetValue>
+          <access>read-write</access>
+        </register>
+        <register>
+          <dim>15872</dim>
+          <dimIncrement>0x1000</dimIncrement>
+          <name>claim[%s]</name>
+          <description>Interrupt Claim/Completion</description>
+            <resetValue>0x00000000</resetValue>
+          <addressOffset>0x200004</addressOffset>
+          <access>read-write</access>
+        </register>
+      </registers>
+    </peripheral>
+    <peripheral>
+      <name>mtimecmp</name>
+      <description>Timer Interrupt Value</description>
+      <baseAddress>0x74004000</baseAddress>
+      <addressBlock>
+        <offset>0</offset>
+        <size>0x8</size>
+        <usage>registers</usage>
+      </addressBlock>
+      <registers>
+        <register>
+          <name>mtimecmp_low</name>
+          <description>Low Bits Of Mtimecmp</description>
+          <addressOffset>0x0</addressOffset>
+          <resetValue>0x00000000</resetValue>
+          <writeConstraint>
+            <range>
+              <minimum>0</minimum>
+              <maximum>4294967295</maximum>
+            </range>
+          </writeConstraint>
+          <access>read-write</access>
+        </register>
+        <register>
+          <name>mtimecmp_high</name>
+          <description>Low Bits Of Mtimecmp</description>
+          <addressOffset>0x4</addressOffset>
+          <resetValue>0x00000000</resetValue>
+          <writeConstraint>
+            <range>
+              <minimum>0</minimum>
+              <maximum>4294967295</maximum>
+            </range>
+          </writeConstraint>
+          <access>read-write</access>
+        </register>
+      </registers>
+    </peripheral>
+    <peripheral>
+      <name>GPIO0</name>
+      <version>1</version>
+      <description>GPIO0</description>
+      <baseAddress>0x03020000</baseAddress>
+      <addressBlock>
+        <offset>0</offset>
+        <size>0x64</size>
+        <usage>registers</usage>
+      </addressBlock>
+      <interrupt>
+        <name>GPIO0</name>
+        <value>41</value>
+      </interrupt>
+      <registers>
+        <register>
+          <name>DR</name>
+          <description>Data Register</description>
+          <addressOffset>0x000</addressOffset>
+          <resetValue>0x00000000</resetValue>
+          <writeConstraint>
+            <range>
+              <minimum>0</minimum>
+              <maximum>4294967295</maximum>
+            </range>
+          </writeConstraint>
+          <access>read-write</access>
+        </register>
+        <register>
+          <name>DDR</name>
+          <description>Data Direction Register</description>
+          <addressOffset>0x004</addressOffset>
+          <resetValue>0x00000000</resetValue>
+          <writeConstraint>
+            <range>
+              <minimum>0</minimum>
+              <maximum>4294967295</maximum>
+            </range>
+          </writeConstraint>
+          <access>read-write</access>
+        </register>
+        <register>
+          <name>INTEN</name>
+          <description>Interrupt Enable Register</description>
+          <addressOffset>0x030</addressOffset>
+          <resetValue>0x00000000</resetValue>
+          <writeConstraint>
+            <range>
+              <minimum>0</minimum>
+              <maximum>4294967295</maximum>
+            </range>
+          </writeConstraint>
+          <access>read-write</access>
+        </register>
+        <register>
+          <name>INTMASK</name>
+          <description>Interrupt Mask Register</description>
+          <addressOffset>0x034</addressOffset>
+          <resetValue>0x00000000</resetValue>
+          <writeConstraint>
+            <range>
+              <minimum>0</minimum>
+              <maximum>4294967295</maximum>
+            </range>
+          </writeConstraint>
+          <access>read-write</access>
+        </register>
+        <register>
+          <name>INTTYPE_LEVEL</name>
+          <description>Interrupt Level Register</description>
+          <addressOffset>0x038</addressOffset>
+          <resetValue>0x00000000</resetValue>
+          <writeConstraint>
+            <range>
+              <minimum>0</minimum>
+              <maximum>4294967295</maximum>
+            </range>
+          </writeConstraint>
+          <access>read-write</access>
+        </register>
+        <register>
+          <name>INT_POLARITY</name>
+          <description>Interrupt Polarity Register</description>
+          <addressOffset>0x03C</addressOffset>
+          <resetValue>0x00000000</resetValue>
+          <writeConstraint>
+            <range>
+              <minimum>0</minimum>
+              <maximum>4294967295</maximum>
+            </range>
+          </writeConstraint>
+          <access>read-write</access>
+        </register>
+        <register>
+          <name>INTSTATUS</name>
+          <description>Interrupt Status Register</description>
+          <addressOffset>0x040</addressOffset>
+          <access>read-only</access>
+        </register>
+        <register>
+          <name>RAW_INTSTATUS</name>
+          <description>Raw (pre-masking) Interrupt Status Register</description>
+          <addressOffset>0x044</addressOffset>
+          <access>read-only</access>
+        </register>
+        <register>
+          <name>DEBOUNCE</name>
+          <description>Debounce Enable Register</description>
+          <addressOffset>0x048</addressOffset>
+          <resetValue>0x00000000</resetValue>
+          <writeConstraint>
+            <range>
+              <minimum>0</minimum>
+              <maximum>4294967295</maximum>
+            </range>
+          </writeConstraint>
+          <access>read-write</access>
+        </register>
+        <register>
+          <name>EOI</name>
+          <description>Clear Interrupt Register</description>
+          <addressOffset>0x04C</addressOffset>
+          <resetValue>0x00000000</resetValue>
+          <writeConstraint>
+            <range>
+              <minimum>0</minimum>
+              <maximum>4294967295</maximum>
+            </range>
+          </writeConstraint>
+          <access>read-write</access>
+        </register>
+        <register>
+          <name>EXT</name>
+          <description>External Port Register</description>
+          <addressOffset>0x050</addressOffset>
+          <access>read-only</access>
+        </register>
+        <register>
+          <name>LS_SYNC</name>
+          <description>Level-Sensitive Synchronization Enable Register</description>
+          <addressOffset>0x060</addressOffset>
+          <resetValue>0x00000000</resetValue>
+          <fields>
+            <field>
+              <name>LS_SYNC</name>
+              <description>Synchronize all level-sensitive interrupt to pclk_intr</description>
+              <bitRange>[0:0]</bitRange>
+            </field>
+          </fields>
+          <access>read-write</access>
+        </register>
+      </registers>
+    </peripheral>
+    <peripheral derivedFrom="GPIO0">
+      <name>GPIO1</name>
+      <baseAddress>0x03021000</baseAddress>
+      <interrupt>
+        <name>GPIO1</name>
+        <value>42</value>
+      </interrupt>
+    </peripheral>
+    <peripheral derivedFrom="GPIO0">
+      <name>GPIO2</name>
+      <baseAddress>0x03022000</baseAddress>
+      <interrupt>
+        <name>GPIO2</name>
+        <value>43</value>
+      </interrupt>
+    </peripheral>
+    <peripheral derivedFrom="GPIO0">
+      <name>GPIO3</name>
+      <baseAddress>0x03023000</baseAddress>
+      <interrupt>
+        <name>GPIO3</name>
+        <value>44</value>
+      </interrupt>
+    </peripheral>
+    <peripheral derivedFrom="GPIO0">
+      <name>RTCSYS_GPIO</name>
+      <baseAddress>0x05021000</baseAddress>
+    </peripheral>
+    <peripheral>
+      <name>UART0</name>
+      <description>UART</description>
+      <baseAddress>0x04140000</baseAddress>
+      <addressBlock>
+        <offset>0</offset>
+        <size>0xAC</size>
+        <usage>registers</usage>
+      </addressBlock>
+      <interrupt>
+        <name>UART0</name>
+        <value>30</value>
+      </interrupt>
+      <registers>
+        <register>
+          <name>RBR_THR_DLL</name>
+          <description>Receive Buffer,Transmit Holding or Divisor Latch Low byte Register</description>
+          <addressOffset>0x000</addressOffset>
+          <resetValue>0x00000000</resetValue>
+          <fields>
+            <field>
+              <name>RBR_THR_DLL</name>
+              <description></description>
+              <bitRange>[7:0]</bitRange>
+              <access>read-write</access>
+            </field>
+          </fields>
+          <access>read-write</access>
+        </register>
+        <register>
+          <name>LSR</name>
+          <description>Line Status Register</description>
+          <addressOffset>0x014</addressOffset>
+          <fields>
+            <field>
+              <name>Data Ready Bit</name>
+              <bitRange>[0:0]</bitRange>
+              <access>read-only</access>
+            </field>
+            <field>
+              <name>Overrun Error Bit</name>
+              <bitRange>[1:1]</bitRange>
+              <access>read-only</access>
+            </field>
+            <field>
+              <name>Parity Error Bit</name>
+              <bitRange>[2:2]</bitRange>
+              <access>read-only</access>
+            </field>
+            <field>
+              <name>Framing Error Bit</name>
+              <bitRange>[3:3]</bitRange>
+              <access>read-only</access>
+            </field>
+            <field>
+              <name>Break Interrupt Bit</name>
+              <bitRange>[4:4]</bitRange>
+              <access>read-only</access>
+            </field>
+            <field>
+              <name>Transmit Holding Register Empty Bit</name>
+              <bitRange>[5:5]</bitRange>
+              <access>read-only</access>
+            </field>
+            <field>
+              <name>Transmitter Empty Bit</name>
+              <bitRange>[6:6]</bitRange>
+              <access>read-only</access>
+            </field>
+            <field>
+              <name>Receiver FIFO Error Bit</name>
+              <bitRange>[7:7]</bitRange>
+              <access>read-only</access>
+            </field>
+          </fields>
+          <access>read-only</access>
+        </register>
+      </registers>
+    </peripheral>
+    <peripheral derivedFrom="UART0">
+      <name>UART1</name>
+      <baseAddress>0x04150000</baseAddress>
+      <interrupt>
+        <name>UART1</name>
+        <value>31</value>
+      </interrupt>
+    </peripheral>
+    <peripheral derivedFrom="UART0">
+      <name>UART2</name>
+      <baseAddress>0x04160000</baseAddress>
+    </peripheral>
+    <peripheral derivedFrom="UART0">
+      <name>UART3</name>
+      <baseAddress>0x04170000</baseAddress>
+    </peripheral>
+    <peripheral derivedFrom="UART0">
+      <name>UART4</name>
+      <baseAddress>0x041C0000</baseAddress>
+    </peripheral>
+    <peripheral derivedFrom="UART0">
+      <name>RTCSYS_UART</name>
+      <baseAddress>0x05022000</baseAddress>
+    </peripheral>
+    <peripheral>
+      <name>mailboxes</name>
+      <baseAddress>0x01900000</baseAddress>
+      <interrupt>
+        <name>MBOX</name>
+        <value>61</value>
+      </interrupt>
+      <size>8</size>
+      <registers>
+        <register>
+          <dim>4</dim>
+          <dimIncrement>0x4</dimIncrement>
+          <name>cpu_mbox_en[%s]</name>
+          <description>Mailbox Enable Bits</description>
+          <addressOffset>0x0</addressOffset>
+          <resetValue>0x00000000</resetValue>
+          <access>read-write</access>
+        </register>
+        <cluster>
+          <dim>4</dim>
+          <dimIncrement>0x10</dimIncrement>
+          <name>cpu_mbox_set[%s]</name>
+          <description>Interrupts Registers</description>
+          <addressOffset>0x10</addressOffset>
+          <register>
+            <name>int_clr</name>
+            <description>Interrupt Clear</description>
+            <addressOffset>0x0</addressOffset>
+            <resetValue>0x00000000</resetValue>
+            <access>read-write</access>
+          </register>
+          <register>
+            <name>int_mask</name>
+            <description>Interrupt Mask</description>
+            <addressOffset>0x4</addressOffset>
+            <resetValue>0x00000000</resetValue>
+            <access>read-write</access>
+          </register>
+          <register>
+            <name>int_int</name>
+            <description>Interrupt Status</description>
+            <addressOffset>0x8</addressOffset>
+            <resetValue>0x00000000</resetValue>
+            <access>read-write</access>
+          </register>
+          <register>
+            <name>int_raw</name>
+            <description>Interrupt Raw</description>
+            <addressOffset>0xc</addressOffset>
+            <resetValue>0x00000000</resetValue>
+            <access>read-write</access>
+          </register>
+        </cluster>
+        <register>
+          <name>mbox_set</name>
+          <description>mbox_set</description>
+          <addressOffset>0x60</addressOffset>
+          <resetValue>0x00000000</resetValue>
+          <access>read-write</access>
+        </register>
+        <register>
+          <name>mbox_status</name>
+          <description>mbox_status</description>
+          <addressOffset>0x64</addressOffset>
+          <resetValue>0x00000000</resetValue>
+          <access>read-write</access>
+        </register>
+        <register>
+          <dim>4</dim>
+          <dimIncrement>0x4</dimIncrement>
+          <name>cpu_mbox_status[%s]</name>
+          <description>cpu_mbox_status</description>
+          <addressOffset>0x70</addressOffset>
+          <resetValue>0x00000000</resetValue>
+          <access>read-write</access>
+        </register>
+        <register>
+          <dim>8</dim>
+          <dimIncrement>0x4</dimIncrement>
+          <size>32</size>
+          <name>spinlock[%s]</name>
+          <description>Spinlock</description>
+          <addressOffset>0xc0</addressOffset>
+          <resetValue>0x00000000</resetValue>
+          <access>read-write</access>
+        </register>
+        <register>
+          <dim>16</dim>
+          <dimIncrement>0x4</dimIncrement>
+          <size>32</size>
+          <name>context[%s]</name>
+          <description>Data For The Messages</description>
+          <addressOffset>0x400</addressOffset>
+          <resetValue>0x00000000</resetValue>
+          <access>read-write</access>
+        </register>
+      </registers>
+    </peripheral>
+  </peripherals>
+</device>
