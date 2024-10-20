@@ -1,0 +1,43 @@
+
+{
+	"name": "milkv_duo_little_core_rust",
+	"build": {
+	  "dockerfile": "Dockerfile",
+	  "args": {
+		"CONTAINER_USER": "milkv",
+		"CONTAINER_GROUP": "milkv"
+	  }
+	},
+	"customizations": {
+	  "vscode": {
+		"settings": {
+		  "editor.formatOnPaste": true,
+		  "editor.formatOnSave": true,
+		  "editor.formatOnSaveMode": "file",
+		  "editor.formatOnType": true,
+		  "lldb.executable": "/usr/bin/lldb",
+		  "files.watcherExclude": {
+			"**/target/**": true
+		  },
+		  "rust-analyzer.checkOnSave.command": "clippy",
+		  "rust-analyzer.checkOnSave.allTargets": false,
+		  "[rust]": {
+			"editor.defaultFormatter": "rust-lang.rust-analyzer"
+		  }
+		},
+		"extensions": [
+		  "rust-lang.rust-analyzer",
+		  "tamasfe.even-better-toml",
+		  "mutantdino.resourcemonitor",
+		  "yzhang.markdown-all-in-one",
+		  "ms-vscode.cpptools",
+		  "actboy168.tasks",
+		  "fill-labs.dependi"
+		]
+	  }
+	},
+	"forwardPorts": [],
+	"workspaceMount": "source=${localWorkspaceFolder},target=/home/milkv/milkv_duo_little_core_rust,type=bind,consistency=cached",
+	"workspaceFolder": "/home/luckfox/milkv_duo_little_core_rust"
+  }
+  
