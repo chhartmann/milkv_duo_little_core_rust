@@ -38,6 +38,6 @@
 	},
 	"forwardPorts": [],
 	"workspaceMount": "source=${localWorkspaceFolder},target=/home/milkv/milkv_duo_little_core_rust,type=bind,consistency=cached",
-	"workspaceFolder": "/home/luckfox/milkv_duo_little_core_rust"
+	"workspaceFolder": "/home/milkv/milkv_duo_little_core_rust"
   }
   
