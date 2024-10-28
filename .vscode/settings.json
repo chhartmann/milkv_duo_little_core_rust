@@ -1,5 +1,6 @@
 {
     "rust-analyzer.linkedProjects": [
         "firmware/Cargo.toml"
-    ]
+    ],
+    "terminal.integrated.cwd": "${workspaceFolder}/firmware"
 }
