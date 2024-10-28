@@ -13,7 +13,7 @@ ARG GITHUB_TOKEN
 # Install dependencies
 RUN apt-get update \
     && apt-get install -y git curl llvm-dev libclang-dev clang unzip gdb-multiarch \
-    libssl-dev pkg-config qemu-user file cpio git ssh make wget binutils-riscv64-unknown-elf \
+    libssl-dev pkg-config qemu-user file cpio git ssh make wget binutils-riscv64-unknown-elf sshpass \
     && apt-get clean -y && rm -rf /var/lib/apt/lists/* /tmp/library-scripts
 
 # Set users
@@ -29,6 +29,7 @@ RUN curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh -s -- \
 ENV PATH=${PATH}:/home/${CONTAINER_USER}/.cargo/bin
 
 # Set default toolchain
+RUN rustup toolchain install nightly
 RUN rustup default nightly
 #RUN rustup target add --toolchain nightly armv7-unknown-linux-gnueabihf
 #RUN rustup component add rust-src --toolchain nightly-x86_64-unknown-linux-gnu

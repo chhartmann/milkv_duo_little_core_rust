@@ -2,9 +2,21 @@
   "version": "2.0.0",
   "tasks": [
     {
-      "label": "Build Firmware",
+      "label": "Build firmware",
       "type": "shell",
       "command": "cargo build",
+      "options": {
+        "cwd": "${workspaceFolder}/firmware"
+      },
+      "group": {
+        "kind": "build",
+        "isDefault": true
+      }
+    },
+    {
+      "label": "Run on target",
+      "type": "shell",
+      "command": "cargo run",
       "options": {
         "cwd": "${workspaceFolder}/firmware"
       },
