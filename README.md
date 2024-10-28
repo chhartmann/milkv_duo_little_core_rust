@@ -5,6 +5,4 @@ Works with Arduino image: https://github.com/milkv-duo/duo-buildroot-sdk/release
 
 See also: https://community.milkv.io/t/jtag-jtag-debug-guide-for-duo/1138
 
-ssh-keyscan -H 192.168.42.1 >> ~/.ssh/known_hosts
-
 Currently only release version works
