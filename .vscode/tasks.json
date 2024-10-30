@@ -4,7 +4,7 @@
     {
       "label": "Build firmware",
       "type": "shell",
-      "command": "cargo build --release",
+      "command": "cargo build",
       "options": {
         "cwd": "${workspaceFolder}/firmware"
       },
@@ -16,7 +16,7 @@
     {
       "label": "Run on target",
       "type": "shell",
-      "command": "cargo run --release",
+      "command": "cargo run",
       "options": {
         "cwd": "${workspaceFolder}/firmware"
       },
