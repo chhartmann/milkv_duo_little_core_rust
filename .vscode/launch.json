@@ -10,6 +10,8 @@
       "name": "Debug on target",
       "type": "cppdbg",
       "request": "launch",
+      "debugServerPath": "${workspaceRoot}/firmware/run_debug_server.sh",
+      "serverStarted": "Show help informations.",
       "cwd": "${workspaceRoot}/firmware",
       "MIMode": "gdb",
       "miDebuggerPath": "gdb-multiarch",
