@@ -38,5 +38,11 @@
 	"forwardPorts": [],
 	"workspaceMount": "source=${localWorkspaceFolder},target=/home/milkv/milkv_duo_little_core_rust,type=bind,consistency=cached",
 	"workspaceFolder": "/home/milkv/milkv_duo_little_core_rust",
-	"postStartCommand": "/home/milkv/milkv_duo_little_core_rust/pac/build-pac.sh"
+	"postStartCommand": "/home/milkv/milkv_duo_little_core_rust/pac/build-pac.sh",
+	"mounts": [
+		"source=/dev/bus/usb,target=/dev/bus/usb,type=bind,consistency=cached"
+	],
+	"runArgs": [
+		"--privileged"
+	]
 }
