@@ -1,0 +1,34 @@
+{
+  "version": "0.2.0",
+  "configurations": [
+    {
+      // "logging": {
+      //   "engineLogging": true,
+      //   "trace": false,
+      //   "traceResponse": false
+      // },
+      "name": "Debug on target",
+      "type": "cppdbg",
+      "request": "launch",
+      "cwd": "${workspaceRoot}/firmware",
+      "MIMode": "gdb",
+      "miDebuggerPath": "gdb-multiarch",
+      "targetArchitecture": "x86", // this is weird, but nothing else worked
+      "program": "${workspaceRoot}/firmware/target/riscv64gc-unknown-none-elf/debug/milkv-duos-little-core-firmware",
+      "setupCommands": [
+        {
+          "text": "-enable-pretty-printing",
+        },
+        {
+          "text": "target remote :1026",
+        },
+        {
+          "text": "load ${workspaceRoot}/firmware/target/riscv64gc-unknown-none-elf/debug/milkv-duos-little-core-firmware"
+        },
+        {
+          "text": "set $pc = 0x83e00000"
+        }
+      ],
+    }
+  ]
+}
