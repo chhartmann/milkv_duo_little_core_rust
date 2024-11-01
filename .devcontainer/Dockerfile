@@ -31,13 +31,12 @@ RUN curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh -s -- \
 ENV PATH=${PATH}:/home/${CONTAINER_USER}/.cargo/bin
 
 # Set default toolchain
-RUN rustup toolchain install nightly
-RUN rustup default nightly
-#RUN rustup target add --toolchain nightly armv7-unknown-linux-gnueabihf
-#RUN rustup component add rust-src --toolchain nightly-x86_64-unknown-linux-gnu
+RUN rustup toolchain install nightly-2024-06-12
+RUN rustup default nightly-2024-06-12
 RUN rustup component add clippy
 RUN rustup component add rustfmt
-
+RUN rustup component add rust-src --target=riscv64gc-unknown-none-elf
+RUN rustup component add rust-std --target=riscv64gc-unknown-none-elf
 RUN cargo install svd2rust form
 
 # Install debugging server (see https://community.milkv.io/t/jtag-jtag-debug-guide-for-duo/1138)
