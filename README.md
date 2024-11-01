@@ -1,10 +1,20 @@
-Based on https://gitlab.com/dzamlo/milkv-duos-little-core-rust-firmware/
-Playground for Rust with https://embassy.dev
+# Rust for MilkV Duo little core
+Based on https://gitlab.com/dzamlo/milkv-duos-little-core-rust-firmware.
 
-The default image from https://github.com/milkv-duo/duo-buildroot-sdk/releases/download/Duo-V1.1.2/arduino-milkv-duo-sd-v1.1.2-2024-0801.img.zip has only 184K reserved for little core.
-This project by default assumes, that 2M are reserved for the little core. For MilkV Duo with sd card, https://github.com/chhartmann/duo-buildroot-sdk/releases/download/rproc_wo_arduino_v0.1/milkv-duo-11593480108.zip has been prepared for this purpose.
-The linker file memory.x has to be adapted, if the default image is used.
+This project can be used as starting poing to play with Rust and https://embassy.dev
 
-ssh-keygen -f "/home/milkv/.ssh/known_hosts" -R "192.168.42.1" has to be executed in the devcontainer, so that the firmware can be deployed automatically.
+This project by default assumes, that 2M are reserved for the little core. For MilkV Duo with sd card https://github.com/chhartmann/duo-buildroot-sdk/releases/download/rproc_wo_arduino_v0.1/milkv-duo-11593480108.zip has been prepared for this purpose.
 
-See also: https://community.milkv.io/t/jtag-jtag-debug-guide-for-duo/1138
+# Build
+The devcontainer includes everything to start programming and compiling.
+
+# Run on target
+The shell script run_on_target.sh is used by the vscode task "Run on target" as well as in "cargo run".
+The script copies the firmware to the board and starts it via remoteproc interface.
+Make sure a connection to the board can be established with "ssh root@192.168.42.1" before.
+
+# Debug on target
+The launch task in vscode for debugging is configured to automatically download the firmware via gdb and start debugging.
+The fip.bin has to be exchanged on the sd card as described in https://community.milkv.io/t/jtag-jtag-debug-guide-for-duo/1138. The debug server is already installed in the devcontainer.
+Make sure the debug server can connect to the debugger with "DebugServerConsole" first.
+Note: The MilkV Duo board has to be powered up, before connecting the debugger (at least for the debugger based on STM32 board).
